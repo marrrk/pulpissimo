@@ -77,7 +77,7 @@ arty: ## Generates bitstream for the Arty A7 100T
 	cp pulpissimo-arty/pulpissimo-arty.runs/impl_1/xilinix_pulpissimo.bin pulpissimo_arty.bin
 	@echo "Bitstream generation for arty board finished. The bitstream Configuration Memory File was copied to ./pulpissimo_arty.bin and ./pulpissimo_arty.bin
 	
-clean_arty:
+clean_arty: ## Removes all bitstreams, *.log files and vivado related files (rm -rf vivado*) for the arty board.
 	$(MAKE) -C pulpissimo-arty clean
 	rm -f pulpissimo_arty.bit
 	rm -f pulpissimo_arty.bin

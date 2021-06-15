@@ -1,0 +1,557 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date         : Mon Jun 14 19:09:17 2021
+| Host         : normandy running 64-bit Ubuntu 20.04.2 LTS
+| Command      : report_timing -nworst 1 -delay_type max -sort_by group -file reports/pulpissimo-arty.timing.rpt
+| Design       : xilinx_pulpissimo
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+-----------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             1.555ns  (required time - arrival time)
+  Source:                 i_pulpissimo/soc_domain_i/pulp_soc_i/jtag_tap_top_i/tap_top_i/td_o_reg/C
+                            (falling edge-triggered cell FDRE clocked by tck  {rise@0.000ns fall@50.000ns period=100.000ns})
+  Destination:            pad_jtag_tdo
+                            (output port clocked by tck  {rise@0.000ns fall@50.000ns period=100.000ns})
+  Path Group:             tck
+  Path Type:              Max at Slow Process Corner
+  Requirement:            20.000ns  (MaxDelay Path 20.000ns)
+  Data Path Delay:        6.990ns  (logic 3.997ns (57.184%)  route 2.993ns (42.816%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           5.000ns
+  Clock Path Skew:        -5.953ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.000ns
+    Source Clock Delay      (SCD):    5.953ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.501ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    1.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       MaxDelay Path 20.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock tck fall edge)        0.000     0.000 f  
+    C15                                               0.000     0.000 f  pad_jtag_tck (IN)
+                         net (fo=0)                   0.000     0.000    pad_jtag_tck
+    C15                  IBUF (Prop_ibuf_I_O)         1.484     1.484 f  i_tck_iobuf/O
+                         net (fo=1, routed)           2.744     4.228    tck_int
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     4.324 f  tck_int_BUFG_inst/O
+                         net (fo=661, routed)         1.629     5.953    i_pulpissimo/soc_domain_i/pulp_soc_i/jtag_tap_top_i/tap_top_i/tck_i
+    SLICE_X28Y102        FDRE                                         r  i_pulpissimo/soc_domain_i/pulp_soc_i/jtag_tap_top_i/tap_top_i/td_o_reg/C  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y102        FDRE (Prop_fdre_C_Q)         0.459     6.412 r  i_pulpissimo/soc_domain_i/pulp_soc_i/jtag_tap_top_i/tap_top_i/td_o_reg/Q
+                         net (fo=1, routed)           2.993     9.405    pad_jtag_tdo_OBUF
+    D15                  OBUF (Prop_obuf_I_O)         3.538    12.943 r  pad_jtag_tdo_OBUF_inst/O
+                         net (fo=0)                   0.000    12.943    pad_jtag_tdo
+    D15                                                               r  pad_jtag_tdo (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   20.000    20.000    
+                         clock pessimism              0.000    20.000    
+                         clock uncertainty           -0.501    19.499    
+                         output delay                -5.000    14.499    
+  -------------------------------------------------------------------
+                         required time                         14.499    
+                         arrival time                         -12.943    
+  -------------------------------------------------------------------
+                         slack                                  1.555    
+
+Slack (MET) :             41.435ns  (required time - arrival time)
+  Source:                 i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/apu_op_ex_o_reg[3]/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_xilinx_clk_mngr  {rise@0.000ns fall@50.000ns period=100.000ns})
+  Destination:            i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/mult_dot_op_b_ex_o_reg[29]/D
+                            (rising edge-triggered cell FDCE clocked by clk_out1_xilinx_clk_mngr  {rise@0.000ns fall@50.000ns period=100.000ns})
+  Path Group:             clk_out1_xilinx_clk_mngr
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            100.000ns  (clk_out1_xilinx_clk_mngr rise@100.000ns - clk_out1_xilinx_clk_mngr rise@0.000ns)
+  Data Path Delay:        58.256ns  (logic 17.358ns (29.796%)  route 40.898ns (70.204%))
+  Logic Levels:           88  (CARRY4=40 LUT2=6 LUT3=3 LUT4=6 LUT5=11 LUT6=22)
+  Clock Path Skew:        -0.086ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -2.617ns = ( 97.383 - 100.000 ) 
+    Source Clock Delay      (SCD):    -2.099ns
+    Clock Pessimism Removal (CPR):    0.432ns
+  Clock Uncertainty:      0.177ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.347ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_xilinx_clk_mngr rise edge)
+                                                      0.000     0.000 r  
+    E3                   IBUF                         0.000     0.000 r  i_sysclk_iobuf/O
+                         net (fo=2, routed)           1.380     1.380    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_in1
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.085    -5.705 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.719    -3.985    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_out1_xilinx_clk_mngr
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.096    -3.889 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clkout1_buf/O
+                         net (fo=11153, routed)       1.790    -2.099    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/clk
+    SLICE_X56Y163        FDCE                                         r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/apu_op_ex_o_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X56Y163        FDCE (Prop_fdce_C_Q)         0.518    -1.581 f  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/apu_op_ex_o_reg[3]/Q
+                         net (fo=133, routed)         2.351     0.770    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/op_i[3]
+    SLICE_X32Y187        LUT2 (Prop_lut2_I1_O)        0.124     0.894 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/result_o[31]_INST_0_i_5/O
+                         net (fo=29, routed)          1.282     2.176    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/result_o[31]_INST_0_i_5_n_0
+    SLICE_X32Y183        LUT6 (Prop_lut6_I3_O)        0.124     2.300 f  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product_i_42/O
+                         net (fo=34, routed)          0.536     2.836    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/product_i_42_n_0
+    SLICE_X29Y184        LUT6 (Prop_lut6_I4_O)        0.124     2.960 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_361/O
+                         net (fo=2, routed)           0.443     3.403    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_361_n_0
+    SLICE_X30Y184        LUT6 (Prop_lut6_I0_O)        0.124     3.527 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_364/O
+                         net (fo=1, routed)           0.000     3.527    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_364_n_0
+    SLICE_X30Y184        CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376     3.903 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_296/CO[3]
+                         net (fo=1, routed)           0.000     3.903    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_296_n_0
+    SLICE_X30Y185        CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219     4.122 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_301/O[0]
+                         net (fo=3, routed)           0.705     4.827    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_301_n_7
+    SLICE_X31Y185        LUT5 (Prop_lut5_I4_O)        0.295     5.122 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_193/O
+                         net (fo=1, routed)           0.000     5.122    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_193_n_0
+    SLICE_X31Y185        CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.580     5.702 f  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_90/O[2]
+                         net (fo=6, routed)           0.857     6.559    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_90_n_5
+    SLICE_X32Y190        LUT4 (Prop_lut4_I0_O)        0.302     6.861 f  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_24/O
+                         net (fo=6, routed)           0.473     7.334    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_24_n_0
+    SLICE_X30Y188        LUT6 (Prop_lut6_I5_O)        0.124     7.458 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_310/O
+                         net (fo=1, routed)           0.530     7.988    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_310_n_0
+    SLICE_X28Y188        CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385     8.373 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_248/CO[3]
+                         net (fo=1, routed)           0.000     8.373    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_248_n_0
+    SLICE_X28Y189        CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     8.595 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_94/O[0]
+                         net (fo=3, routed)           0.776     9.371    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/exponent_difference[8]
+    SLICE_X29Y188        LUT3 (Prop_lut3_I2_O)        0.325     9.696 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_93/O
+                         net (fo=7, routed)           0.482    10.179    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_93_n_0
+    SLICE_X29Y188        LUT6 (Prop_lut6_I2_O)        0.326    10.505 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_247/O
+                         net (fo=152, routed)         1.151    11.656    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_247_n_0
+    SLICE_X23Y188        LUT6 (Prop_lut6_I4_O)        0.124    11.780 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_273/O
+                         net (fo=5, routed)           0.831    12.611    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_273_n_0
+    SLICE_X22Y186        LUT4 (Prop_lut4_I2_O)        0.152    12.763 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_246/O
+                         net (fo=3, routed)           0.825    13.588    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_246_n_0
+    SLICE_X23Y185        LUT5 (Prop_lut5_I0_O)        0.326    13.914 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_210/O
+                         net (fo=2, routed)           0.926    14.840    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_210_n_0
+    SLICE_X23Y189        LUT6 (Prop_lut6_I1_O)        0.124    14.964 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_131/O
+                         net (fo=2, routed)           1.037    16.002    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_131_n_0
+    SLICE_X24Y191        LUT6 (Prop_lut6_I4_O)        0.124    16.126 f  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[NX]_INST_0_i_9/O
+                         net (fo=2, routed)           0.586    16.712    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[NX]_INST_0_i_9_n_0
+    SLICE_X25Y190        LUT2 (Prop_lut2_I1_O)        0.153    16.865 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_78/O
+                         net (fo=2, routed)           0.813    17.677    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/inject_carry_in
+    SLICE_X21Y179        LUT6 (Prop_lut6_I0_O)        0.327    18.004 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_82/O
+                         net (fo=1, routed)           0.000    18.004    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_82_n_0
+    SLICE_X21Y179        CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    18.536 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_51/CO[3]
+                         net (fo=1, routed)           0.000    18.536    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_51_n_0
+    SLICE_X21Y180        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    18.650 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_76/CO[3]
+                         net (fo=1, routed)           0.000    18.650    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_76_n_0
+    SLICE_X21Y181        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    18.764 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_74/CO[3]
+                         net (fo=1, routed)           0.000    18.764    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_74_n_0
+    SLICE_X21Y182        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    18.878 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_72/CO[3]
+                         net (fo=1, routed)           0.000    18.878    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_72_n_0
+    SLICE_X21Y183        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    18.992 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_70/CO[3]
+                         net (fo=1, routed)           0.000    18.992    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_70_n_0
+    SLICE_X21Y184        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.106 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_68/CO[3]
+                         net (fo=1, routed)           0.000    19.106    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_68_n_0
+    SLICE_X21Y185        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.220 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_66/CO[3]
+                         net (fo=1, routed)           0.000    19.220    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_66_n_0
+    SLICE_X21Y186        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.334 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_64/CO[3]
+                         net (fo=1, routed)           0.000    19.334    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_64_n_0
+    SLICE_X21Y187        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.448 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_62/CO[3]
+                         net (fo=1, routed)           0.000    19.448    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_62_n_0
+    SLICE_X21Y188        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.562 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_60/CO[3]
+                         net (fo=1, routed)           0.000    19.562    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_60_n_0
+    SLICE_X21Y189        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.676 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_58/CO[3]
+                         net (fo=1, routed)           0.000    19.676    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_58_n_0
+    SLICE_X21Y190        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.790 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_56/CO[3]
+                         net (fo=1, routed)           0.000    19.790    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_56_n_0
+    SLICE_X21Y191        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    19.904 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_54/CO[3]
+                         net (fo=1, routed)           0.000    19.904    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_54_n_0
+    SLICE_X21Y192        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    20.018 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_195/CO[3]
+                         net (fo=1, routed)           0.000    20.018    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_195_n_0
+    SLICE_X21Y193        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    20.132 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_410/CO[3]
+                         net (fo=1, routed)           0.000    20.132    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_410_n_0
+    SLICE_X21Y194        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    20.246 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_412/CO[3]
+                         net (fo=1, routed)           0.000    20.246    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_412_n_0
+    SLICE_X21Y195        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    20.360 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_387/CO[3]
+                         net (fo=1, routed)           0.000    20.360    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_387_n_0
+    SLICE_X21Y196        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    20.474 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_292/CO[3]
+                         net (fo=1, routed)           0.000    20.474    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_292_n_0
+    SLICE_X21Y197        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    20.588 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_172/CO[3]
+                         net (fo=1, routed)           0.000    20.588    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_172_n_0
+    SLICE_X21Y198        CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.271    20.859 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_89/CO[0]
+                         net (fo=2, routed)           1.005    21.865    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/sum_carry
+    SLICE_X23Y185        LUT2 (Prop_lut2_I0_O)        0.373    22.238 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_53/O
+                         net (fo=87, routed)          0.921    23.159    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_53_n_0
+    SLICE_X22Y183        LUT3 (Prop_lut3_I1_O)        0.152    23.311 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc_i_35/O
+                         net (fo=13, routed)          1.548    24.859    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/in_i[16]
+    SLICE_X25Y193        LUT4 (Prop_lut4_I3_O)        0.356    25.215 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/cnt_o[3]_INST_0_i_6/O
+                         net (fo=2, routed)           0.284    25.499    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/p_23_in
+    SLICE_X25Y193        LUT5 (Prop_lut5_I2_O)        0.322    25.821 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/cnt_o[3]_INST_0_i_3/O
+                         net (fo=3, routed)           0.844    26.665    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/p_28_in
+    SLICE_X24Y192        LUT6 (Prop_lut6_I1_O)        0.332    26.997 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/cnt_o[1]_INST_0_i_3/O
+                         net (fo=1, routed)           0.670    27.667    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/gen_lzc.index_nodes[2][1]
+    SLICE_X24Y192        LUT5 (Prop_lut5_I4_O)        0.124    27.791 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_lzc/cnt_o[1]_INST_0/O
+                         net (fo=14, routed)          0.987    28.778    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/leading_zero_count[1]
+    SLICE_X31Y189        LUT4 (Prop_lut4_I0_O)        0.124    28.902 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_338/O
+                         net (fo=1, routed)           0.000    28.902    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_338_n_0
+    SLICE_X31Y189        CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    29.300 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_202/CO[3]
+                         net (fo=1, routed)           0.000    29.300    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_202_n_0
+    SLICE_X31Y190        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    29.414 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_198/CO[3]
+                         net (fo=1, routed)           0.000    29.414    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_198_n_0
+    SLICE_X31Y191        CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    29.571 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_95/CO[1]
+                         net (fo=10, routed)          0.712    30.283    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_95_n_2
+    SLICE_X29Y191        LUT2 (Prop_lut2_I0_O)        0.355    30.638 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_26/O
+                         net (fo=12, routed)          0.544    31.182    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_26_n_0
+    SLICE_X28Y191        LUT6 (Prop_lut6_I2_O)        0.326    31.508 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_212/O
+                         net (fo=1, routed)           0.612    32.120    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_212_n_0
+    SLICE_X27Y191        LUT3 (Prop_lut3_I1_O)        0.124    32.244 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_103/O
+                         net (fo=137, routed)         1.436    33.680    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_103_n_0
+    SLICE_X17Y199        LUT6 (Prop_lut6_I2_O)        0.124    33.804 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_158/O
+                         net (fo=1, routed)           0.937    34.741    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_158_n_0
+    SLICE_X23Y199        LUT6 (Prop_lut6_I0_O)        0.124    34.865 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_71/O
+                         net (fo=1, routed)           0.951    35.816    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_71_n_0
+    SLICE_X28Y197        LUT5 (Prop_lut5_I3_O)        0.124    35.940 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_17/O
+                         net (fo=51, routed)          1.267    37.207    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[UF]_INST_0_i_17_n_0
+    SLICE_X35Y195        LUT2 (Prop_lut2_I1_O)        0.124    37.331 f  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_50/O
+                         net (fo=28, routed)          0.655    37.986    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_50_n_0
+    SLICE_X33Y193        LUT4 (Prop_lut4_I3_O)        0.124    38.110 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_44/O
+                         net (fo=3, routed)           0.577    38.687    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_44_n_0
+    SLICE_X35Y190        LUT5 (Prop_lut5_I4_O)        0.124    38.811 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_401/O
+                         net (fo=1, routed)           0.000    38.811    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_401_n_0
+    SLICE_X35Y190        CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    39.343 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_313/CO[3]
+                         net (fo=1, routed)           0.000    39.343    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_313_n_0
+    SLICE_X35Y191        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    39.457 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_181/CO[3]
+                         net (fo=1, routed)           0.000    39.457    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_181_n_0
+    SLICE_X35Y192        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    39.571 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_96/CO[3]
+                         net (fo=1, routed)           0.000    39.571    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_96_n_0
+    SLICE_X35Y193        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    39.685 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_37/CO[3]
+                         net (fo=34, routed)          0.919    40.604    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/of_before_round
+    SLICE_X32Y194        LUT6 (Prop_lut6_I5_O)        0.124    40.728 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[NX]_INST_0_i_10/O
+                         net (fo=2, routed)           0.170    40.898    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[NX]_INST_0_i_10_n_0
+    SLICE_X32Y194        LUT6 (Prop_lut6_I3_O)        0.124    41.022 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[NX]_INST_0_i_3/O
+                         net (fo=1, routed)           0.592    41.614    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[NX]_INST_0_i_3_n_0
+    SLICE_X33Y194        LUT6 (Prop_lut6_I2_O)        0.124    41.738 f  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[NX]_INST_0_i_1/O
+                         net (fo=2, routed)           0.321    42.059    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/status_o[NX]_INST_0_i_1_n_0
+    SLICE_X34Y194        LUT6 (Prop_lut6_I4_O)        0.124    42.183 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding_i_34/O
+                         net (fo=2, routed)           0.659    42.842    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/round_sticky_bits_i[0]
+    SLICE_X35Y185        LUT6 (Prop_lut6_I4_O)        0.124    42.966 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[0]_INST_0_i_2/O
+                         net (fo=1, routed)           0.504    43.470    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[0]_INST_0_i_2_n_0
+    SLICE_X34Y184        LUT6 (Prop_lut6_I5_O)        0.124    43.594 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[0]_INST_0_i_1/O
+                         net (fo=1, routed)           0.000    43.594    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[0]_INST_0_i_1_n_0
+    SLICE_X34Y184        CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.513    44.107 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[0]_INST_0/CO[3]
+                         net (fo=1, routed)           0.000    44.107    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[0]_INST_0_n_0
+    SLICE_X34Y185        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    44.224 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[4]_INST_0/CO[3]
+                         net (fo=1, routed)           0.000    44.224    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[4]_INST_0_n_0
+    SLICE_X34Y186        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    44.341 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[8]_INST_0/CO[3]
+                         net (fo=1, routed)           0.000    44.341    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[8]_INST_0_n_0
+    SLICE_X34Y187        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    44.458 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[12]_INST_0/CO[3]
+                         net (fo=1, routed)           0.000    44.458    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[12]_INST_0_n_0
+    SLICE_X34Y188        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    44.575 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[16]_INST_0/CO[3]
+                         net (fo=1, routed)           0.000    44.575    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[16]_INST_0_n_0
+    SLICE_X34Y189        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    44.692 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[20]_INST_0/CO[3]
+                         net (fo=1, routed)           0.000    44.692    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[20]_INST_0_n_0
+    SLICE_X34Y190        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    44.809 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[24]_INST_0/CO[3]
+                         net (fo=1, routed)           0.000    44.809    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[24]_INST_0_n_0
+    SLICE_X34Y191        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    45.132 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/i_fpnew_rounding/abs_rounded_o[28]_INST_0/O[1]
+                         net (fo=3, routed)           0.635    45.767    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/rounded_abs[29]
+    SLICE_X38Y186        LUT5 (Prop_lut5_I1_O)        0.298    46.065 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_fpnew_fma_multi/result_o[29]_INST_0/O
+                         net (fo=1, routed)           0.436    46.501    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/gen_num_lanes[0].active_lane.op_result[29]
+    SLICE_X38Y185        LUT5 (Prop_lut5_I3_O)        0.328    46.829 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/gen_merged_slice.i_multifmt_slice/result_o[29]_INST_0/O
+                         net (fo=1, routed)           1.196    48.024    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/i_arbiter/data_i[0][result][29]
+    SLICE_X47Y175        LUT2 (Prop_lut2_I1_O)        0.152    48.176 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/gen_operation_groups[0].i_opgroup_block/i_arbiter/data_o[result][29]_INST_0/O
+                         net (fo=1, routed)           0.473    48.649    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/i_arbiter/data_i[0][result][29]
+    SLICE_X48Y173        LUT5 (Prop_lut5_I4_O)        0.326    48.975 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/i_arbiter/data_o[result][29]_INST_0_i_1/O
+                         net (fo=1, routed)           0.780    49.756    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/i_arbiter/gen_arbiter.data_nodes[1][result][29]
+    SLICE_X48Y167        LUT5 (Prop_lut5_I4_O)        0.124    49.880 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/i_fpnew_bulk/i_arbiter/data_o[result][29]_INST_0/O
+                         net (fo=2, routed)           0.449    50.328    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/apu_result[29]
+    SLICE_X46Y165        LUT6 (Prop_lut6_I5_O)        0.124    50.452 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/ex_stage_i/regfile_wdata_wb_o[29]_INST_0/O
+                         net (fo=66, routed)          0.870    51.323    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/regfile_wdata_wb_i[29]
+    SLICE_X42Y168        LUT5 (Prop_lut5_I1_O)        0.124    51.447 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/alu_operand_a_ex_o[29]_i_2/O
+                         net (fo=3, routed)           0.742    52.189    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/alu_operand_a_ex_o[29]_i_2_n_0
+    SLICE_X43Y164        LUT4 (Prop_lut4_I0_O)        0.124    52.313 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/alu_operand_b_ex_o[29]_i_11/O
+                         net (fo=1, routed)           0.432    52.745    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/alu_operand_b_ex_o[29]_i_11_n_0
+    SLICE_X42Y163        LUT6 (Prop_lut6_I4_O)        0.124    52.869 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/alu_operand_b_ex_o[29]_i_5/O
+                         net (fo=1, routed)           1.106    53.975    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/alu_operand_b_ex_o[29]_i_5_n_0
+    SLICE_X34Y162        LUT6 (Prop_lut6_I5_O)        0.124    54.099 r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/alu_operand_b_ex_o[29]_i_1/O
+                         net (fo=4, routed)           2.058    56.158    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/alu_operand_b[29]
+    SLICE_X10Y191        FDCE                                         r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/mult_dot_op_b_ex_o_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_xilinx_clk_mngr rise edge)
+                                                    100.000   100.000 r  
+    E3                   IBUF                         0.000   100.000 r  i_sysclk_iobuf/O
+                         net (fo=2, routed)           1.302   101.302    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_in1
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.338    93.964 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.639    95.604    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_out1_xilinx_clk_mngr
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.091    95.695 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clkout1_buf/O
+                         net (fo=11153, routed)       1.688    97.383    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/clk
+    SLICE_X10Y191        FDCE                                         r  i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/mult_dot_op_b_ex_o_reg[29]/C
+                         clock pessimism              0.432    97.815    
+                         clock uncertainty           -0.177    97.638    
+    SLICE_X10Y191        FDCE (Setup_fdce_C_D)       -0.045    97.593    i_pulpissimo/soc_domain_i/pulp_soc_i/fc_subsystem_i/FC_CORE.lFC_CORE/id_stage_i/mult_dot_op_b_ex_o_reg[29]
+  -------------------------------------------------------------------
+                         required time                         97.593    
+                         arrival time                         -56.158    
+  -------------------------------------------------------------------
+                         slack                                 41.435    
+
+Slack (MET) :             85.890ns  (required time - arrival time)
+  Source:                 i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_dout/read_tr/state_reg[4]/C
+                            (rising edge-triggered cell FDCE clocked by clk_out2_xilinx_clk_mngr  {rise@0.000ns fall@100.000ns period=200.000ns})
+  Destination:            i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/spi_sdo0_o_reg/D
+                            (falling edge-triggered cell FDCE clocked by clk_out2_xilinx_clk_mngr  {rise@0.000ns fall@100.000ns period=200.000ns})
+  Path Group:             clk_out2_xilinx_clk_mngr
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            100.000ns  (clk_out2_xilinx_clk_mngr fall@100.000ns - clk_out2_xilinx_clk_mngr rise@0.000ns)
+  Data Path Delay:        13.455ns  (logic 2.496ns (18.551%)  route 10.959ns (81.449%))
+  Logic Levels:           9  (LUT2=2 LUT3=1 LUT4=1 LUT5=1 LUT6=3 MUXF7=1)
+  Clock Path Skew:        -0.487ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.444ns = ( 100.444 - 100.000 ) 
+    Source Clock Delay      (SCD):    1.876ns
+    Clock Pessimism Removal (CPR):    0.946ns
+  Clock Uncertainty:      0.200ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.394ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out2_xilinx_clk_mngr rise edge)
+                                                      0.000     0.000 r  
+    E3                   IBUF                         0.000     0.000 r  i_sysclk_iobuf/O
+                         net (fo=2, routed)           1.380     1.380    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_in1
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT1)
+                                                     -7.085    -5.705 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/mmcm_adv_inst/CLKOUT1
+                         net (fo=1, routed)           1.719    -3.985    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_out2_xilinx_clk_mngr
+    BUFGCTRL_X0Y7        BUFG (Prop_bufg_I_O)         0.096    -3.889 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clkout2_buf/O
+                         net (fo=24, routed)          2.499    -1.390    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_per/i_clk_gate/clk_i
+    SLICE_X73Y27         LUT2 (Prop_lut2_I0_O)        0.124    -1.266 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_per/i_clk_gate/clk_o_INST_0/O
+                         net (fo=33, routed)          0.729    -0.537    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/clk_i
+    SLICE_X79Y25         LUT3 (Prop_lut3_I0_O)        0.124    -0.413 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate_i_1/O
+                         net (fo=2, routed)           0.583     0.169    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate/clk_i
+    SLICE_X77Y25         LUT2 (Prop_lut2_I0_O)        0.124     0.293 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate/clk_o_INST_0/O
+                         net (fo=729, routed)         1.583     1.876    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_dout/read_tr/clk
+    SLICE_X59Y36         FDCE                                         r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_dout/read_tr/state_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X59Y36         FDCE (Prop_fdce_C_Q)         0.456     2.332 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_dout/read_tr/state_reg[4]/Q
+                         net (fo=4, routed)           1.362     3.694    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_dout/read_token[4]
+    SLICE_X59Y35         LUT2 (Prop_lut2_I1_O)        0.152     3.846 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_dout/read_pointer[7]_INST_0/O
+                         net (fo=4, routed)           0.472     4.318    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_din/buffer/RPRT_OH_BIN/onehot[7]
+    SLICE_X59Y37         LUT4 (Prop_lut4_I2_O)        0.326     4.644 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_din/buffer/RPRT_OH_BIN/bin[1]_INST_0/O
+                         net (fo=62, routed)          3.273     7.917    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_din/buffer/read_pointer_bin[1]
+    SLICE_X65Y25         LUT6 (Prop_lut6_I2_O)        0.124     8.041 f  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_din/buffer/read_data[28]_INST_0_i_2/O
+                         net (fo=1, routed)           0.000     8.041    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_din/buffer/read_data[28]_INST_0_i_2_n_0
+    SLICE_X65Y25         MUXF7 (Prop_muxf7_I1_O)      0.217     8.258 f  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_dc_cmd/u_din/buffer/read_data[28]_INST_0/O
+                         net (fo=12, routed)          1.187     9.446    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_spictrl/udma_cmd_i[28]
+    SLICE_X67Y33         LUT5 (Prop_lut5_I2_O)        0.327     9.773 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_spictrl/tx_start_o_INST_0_i_4/O
+                         net (fo=4, routed)           0.838    10.610    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_spictrl/tx_start_o_INST_0_i_4_n_0
+    SLICE_X67Y32         LUT6 (Prop_lut6_I5_O)        0.326    10.936 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_spictrl/tx_start_o_INST_0_i_2/O
+                         net (fo=10, routed)          1.137    12.073    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_spictrl/tx_start_o_INST_0_i_2_n_0
+    SLICE_X71Y35         LUT3 (Prop_lut3_I1_O)        0.124    12.197 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_spictrl/tx_start_o_INST_0/O
+                         net (fo=20, routed)          1.681    13.877    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/tx_start_i
+    SLICE_X73Y41         LUT2 (Prop_lut2_I1_O)        0.118    13.995 f  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/spi_sdo0_o_i_5/O
+                         net (fo=2, routed)           1.009    15.005    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/spi_sdo0_o_i_5_n_0
+    SLICE_X75Y41         LUT6 (Prop_lut6_I4_O)        0.326    15.331 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/spi_sdo0_o_i_1/O
+                         net (fo=1, routed)           0.000    15.331    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/s_spi_sdo04_out
+    SLICE_X75Y41         FDCE                                         r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/spi_sdo0_o_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out2_xilinx_clk_mngr fall edge)
+                                                    100.000   100.000 f  
+    E3                   IBUF                         0.000   100.000 f  i_sysclk_iobuf/O
+                         net (fo=2, routed)           1.302   101.302    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_in1
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT1)
+                                                     -7.338    93.964 f  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/mmcm_adv_inst/CLKOUT1
+                         net (fo=1, routed)           1.639    95.604    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_out2_xilinx_clk_mngr
+    BUFGCTRL_X0Y7        BUFG (Prop_bufg_I_O)         0.091    95.695 f  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clkout2_buf/O
+                         net (fo=24, routed)          2.242    97.936    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_per/i_clk_gate/clk_i
+    SLICE_X73Y27         LUT2 (Prop_lut2_I0_O)        0.100    98.036 f  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[1].i_clk_gate_per/i_clk_gate/clk_o_INST_0/O
+                         net (fo=33, routed)          0.621    98.657    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/clk_i
+    SLICE_X79Y25         LUT3 (Prop_lut3_I0_O)        0.100    98.757 f  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate_i_1/O
+                         net (fo=2, routed)           0.491    99.248    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate/clk_i
+    SLICE_X77Y25         LUT2 (Prop_lut2_I0_O)        0.100    99.348 f  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_clockgen/i_clk_gate/clk_o_INST_0/O
+                         net (fo=729, routed)         1.096   100.444    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/clk_i
+    SLICE_X75Y41         FDCE                                         r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/spi_sdo0_o_reg/C  (IS_INVERTED)
+                         clock pessimism              0.946   101.389    
+                         clock uncertainty           -0.200   101.189    
+    SLICE_X75Y41         FDCE (Setup_fdce_C_D)        0.032   101.221    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_spim_gen[0].i_spim/u_txrx/spi_sdo0_o_reg
+  -------------------------------------------------------------------
+                         required time                        101.221    
+                         arrival time                         -15.331    
+  -------------------------------------------------------------------
+                         slack                                 85.890    
+
+Slack (MET) :             96.289ns  (required time - arrival time)
+  Source:                 i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_reg_if/r_uart_rx_clean_fifo_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_xilinx_clk_mngr  {rise@0.000ns fall@50.000ns period=100.000ns})
+  Destination:            i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_dc_fifo_rx/u_dout/empty_synch/d_middle_reg[0]/CLR
+                            (recovery check against rising-edge clock clk_out1_xilinx_clk_mngr  {rise@0.000ns fall@50.000ns period=100.000ns})
+  Path Group:             **async_default**
+  Path Type:              Recovery (Max at Slow Process Corner)
+  Requirement:            100.000ns  (clk_out1_xilinx_clk_mngr rise@100.000ns - clk_out1_xilinx_clk_mngr rise@0.000ns)
+  Data Path Delay:        3.035ns  (logic 0.642ns (21.156%)  route 2.393ns (78.844%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        -0.094ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.513ns = ( 101.513 - 100.000 ) 
+    Source Clock Delay      (SCD):    2.651ns
+    Clock Pessimism Removal (CPR):    1.044ns
+  Clock Uncertainty:      0.177ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.347ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_xilinx_clk_mngr rise edge)
+                                                      0.000     0.000 r  
+    E3                   IBUF                         0.000     0.000 r  i_sysclk_iobuf/O
+                         net (fo=2, routed)           1.380     1.380    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_in1
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.085    -5.705 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.719    -3.985    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_out1_xilinx_clk_mngr
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.096    -3.889 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clkout1_buf/O
+                         net (fo=11153, routed)       2.291    -1.598    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_i
+    SLICE_X52Y96         LUT2 (Prop_lut2_I0_O)        0.124    -1.474 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o_INST_0/O
+                         net (fo=1, routed)           0.584    -0.890    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o
+    BUFGCTRL_X0Y5        BUFG (Prop_bufg_I_O)         0.096    -0.794 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o_BUFG_inst/O
+                         net (fo=1115, routed)        2.477     1.683    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_sys/clk_i
+    SLICE_X48Y49         LUT2 (Prop_lut2_I0_O)        0.124     1.807 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_sys/clk_o_INST_0/O
+                         net (fo=204, routed)         0.844     2.651    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_reg_if/clk_i
+    SLICE_X54Y47         FDCE                                         r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_reg_if/r_uart_rx_clean_fifo_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X54Y47         FDCE (Prop_fdce_C_Q)         0.518     3.169 f  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_reg_if/r_uart_rx_clean_fifo_reg/Q
+                         net (fo=2, routed)           1.015     4.184    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/s_uart_rx_clean_fifo
+    SLICE_X54Y45         LUT2 (Prop_lut2_I1_O)        0.124     4.308 f  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_dc_fifo_rx_i_1/O
+                         net (fo=51, routed)          1.378     5.685    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_dc_fifo_rx/u_dout/empty_synch/rstn
+    SLICE_X51Y41         FDCE                                         f  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_dc_fifo_rx/u_dout/empty_synch/d_middle_reg[0]/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_xilinx_clk_mngr rise edge)
+                                                    100.000   100.000 r  
+    E3                   IBUF                         0.000   100.000 r  i_sysclk_iobuf/O
+                         net (fo=2, routed)           1.302   101.302    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_in1
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.338    93.964 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.639    95.604    i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clk_out1_xilinx_clk_mngr
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.091    95.695 r  i_pulpissimo/soc_domain_i/pulp_soc_i/i_clk_rst_gen/i_fpga_clk_gen/i_clk_manager/inst/clkout1_buf/O
+                         net (fo=11153, routed)       2.037    97.732    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_i
+    SLICE_X52Y96         LUT2 (Prop_lut2_I0_O)        0.100    97.832 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o_INST_0/O
+                         net (fo=1, routed)           0.525    98.356    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o
+    BUFGCTRL_X0Y5        BUFG (Prop_bufg_I_O)         0.091    98.448 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/i_clk_gate_sys_udma/clk_o_BUFG_inst/O
+                         net (fo=1115, routed)        2.216   100.664    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_sys/clk_i
+    SLICE_X48Y49         LUT2 (Prop_lut2_I0_O)        0.100   100.764 r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_udmacore/genblk1[0].i_clk_gate_sys/clk_o_INST_0/O
+                         net (fo=204, routed)         0.749   101.513    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_dc_fifo_rx/u_dout/empty_synch/clk
+    SLICE_X51Y41         FDCE                                         r  i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_dc_fifo_rx/u_dout/empty_synch/d_middle_reg[0]/C
+                         clock pessimism              1.044   102.557    
+                         clock uncertainty           -0.177   102.380    
+    SLICE_X51Y41         FDCE (Recov_fdce_C_CLR)     -0.405   101.975    i_pulpissimo/soc_domain_i/pulp_soc_i/soc_peripherals_i/i_udma/i_uart_gen[0].i_uart/u_dc_fifo_rx/u_dout/empty_synch/d_middle_reg[0]
+  -------------------------------------------------------------------
+                         required time                        101.975    
+                         arrival time                          -5.685    
+  -------------------------------------------------------------------
+                         slack                                 96.289    
+
+Slack (MET) :             120.227ns  (required time - arrival time)
+  Source:                 i_pulpissimo/safe_domain_i/i_slow_clk_gen/clk_counter_q_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_xilinx_slow_clk_mngr  {rise@0.000ns fall@62.500ns period=125.000ns})
+  Destination:            i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_clock_gate/CE0
+                            (rising edge-triggered cell BUFGCTRL clocked by clk_out1_xilinx_slow_clk_mngr  {rise@0.000ns fall@62.500ns period=125.000ns})
+  Path Group:             clk_out1_xilinx_slow_clk_mngr
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            125.000ns  (clk_out1_xilinx_slow_clk_mngr rise@125.000ns - clk_out1_xilinx_slow_clk_mngr rise@0.000ns)
+  Data Path Delay:        3.015ns  (logic 0.842ns (27.924%)  route 2.173ns (72.076%))
+  Logic Levels:           2  (LUT3=1 LUT6=1)
+  Clock Path Skew:        -1.499ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -4.299ns = ( 120.701 - 125.000 ) 
+    Source Clock Delay      (SCD):    -2.389ns
+    Clock Pessimism Removal (CPR):    0.410ns
+  Clock Uncertainty:      0.100ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.186ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_xilinx_slow_clk_mngr rise edge)
+                                                      0.000     0.000 r  
+    E3                   IBUF                         0.000     0.000 r  i_sysclk_iobuf/O
+                         net (fo=2, routed)           1.233     1.233    i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_slow_clk_mngr/inst/clk_in1
+    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.070    -5.837 r  i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_slow_clk_mngr/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=2, routed)           1.719    -4.118    i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_slow_clk_mngr/inst/clk_out1_xilinx_slow_clk_mngr
+    BUFGCTRL_X0Y16       BUFGCTRL (Prop_bufgctrl_I0_O)
+                                                      0.096    -4.022 r  i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_slow_clk_mngr/inst/clkout1_buf/O
+                         net (fo=9, routed)           1.632    -2.389    i_pulpissimo/safe_domain_i/i_slow_clk_gen/intermmediate_clock
+    SLICE_X51Y93         FDCE                                         r  i_pulpissimo/safe_domain_i/i_slow_clk_gen/clk_counter_q_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X51Y93         FDCE (Prop_fdce_C_Q)         0.419    -1.970 r  i_pulpissimo/safe_domain_i/i_slow_clk_gen/clk_counter_q_reg[2]/Q
+                         net (fo=5, routed)           0.898    -1.072    i_pulpissimo/safe_domain_i/i_slow_clk_gen/clk_counter_q[2]
+    SLICE_X51Y93         LUT6 (Prop_lut6_I1_O)        0.299    -0.773 f  i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_clock_gate_i_2/O
+                         net (fo=3, routed)           0.515    -0.259    i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_clock_gate_i_2_n_0
+    SLICE_X51Y94         LUT3 (Prop_lut3_I2_O)        0.124    -0.135 r  i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_clock_gate_i_1/O
+                         net (fo=1, routed)           0.761     0.626    i_pulpissimo/safe_domain_i/i_slow_clk_gen/clock_gate_en
+    BUFGCTRL_X0Y17       BUFGCTRL                                     r  i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_clock_gate/CE0
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_xilinx_slow_clk_mngr rise edge)
+                                                    125.000   125.000 r  
+    E3                   IBUF                         0.000   125.000 r  i_sysclk_iobuf/O
+                         net (fo=2, routed)           1.162   126.162    i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_slow_clk_mngr/inst/clk_in1
+    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.324   118.838 r  i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_slow_clk_mngr/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=2, routed)           1.639   120.477    i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_slow_clk_mngr/inst/clk_out1_xilinx_slow_clk_mngr
+    BUFGCTRL_X0Y16       BUFGCTRL (Prop_bufgctrl_I0_O)
+                                                      0.091   120.568 r  i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_slow_clk_mngr/inst/clkout1_buf/O
+                         net (fo=9, routed)           0.133   120.701    i_pulpissimo/safe_domain_i/i_slow_clk_gen/intermmediate_clock
+    BUFGCTRL_X0Y17       BUFGCTRL                                     r  i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_clock_gate/I0
+                         clock pessimism              0.410   121.111    
+                         clock uncertainty           -0.100   121.012    
+    BUFGCTRL_X0Y17       BUFGCTRL (Setup_bufgctrl_I0_CE0)
+                                                     -0.159   120.853    i_pulpissimo/safe_domain_i/i_slow_clk_gen/i_clock_gate
+  -------------------------------------------------------------------
+                         required time                        120.853    
+                         arrival time                          -0.626    
+  -------------------------------------------------------------------
+                         slack                                120.227    
+
+
+
+
