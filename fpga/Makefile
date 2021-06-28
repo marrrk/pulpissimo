@@ -73,9 +73,9 @@ clean_zcu102: ## Removes all bitstreams, *.log files and vivado related files (r
 	
 arty: ## Generates bitstream for the Arty A7 100T
 	$(MAKE) -C pulpissimo-arty all
-	cp pulpissimo-arty/pulpissimo-arty.runs/impl_1/xilinix_pulpissimo.bit pulpissimo_arty.bit
-	cp pulpissimo-arty/pulpissimo-arty.runs/impl_1/xilinix_pulpissimo.bin pulpissimo_arty.bin
-	@echo "Bitstream generation for arty board finished. The bitstream Configuration Memory File was copied to ./pulpissimo_arty.bin and ./pulpissimo_arty.bin
+	cp pulpissimo-arty/pulpissimo-arty.runs/impl_1/xilinx_pulpissimo.bit pulpissimo_arty.bit
+	cp pulpissimo-arty/pulpissimo-arty.runs/impl_1/xilinx_pulpissimo.bin pulpissimo_arty.bin
+	@echo "Bitstream generation for arty board finished. The bitstream Configuration Memory File was copied to ./pulpissimo_arty.bin and ./pulpissimo_arty.bin"
 	
 clean_arty: ## Removes all bitstreams, *.log files and vivado related files (rm -rf vivado*) for the arty board.
 	$(MAKE) -C pulpissimo-arty clean

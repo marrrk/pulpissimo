@@ -50,7 +50,7 @@ module xilinx_pulpissimo
    inout wire  btn1_i, //Mapped to cam_data4
    inout wire  btn2_i, //Mapped to cam_data5
    inout wire  btn3_i, //Mapped to cam_data6
-   inout wire  switch3_i, //Mapped to cam_data7
+   inout wire  switch2_i, //Mapped to cam_data7
 
 	//don't need OLED SCreen
 //   inout wire  oled_spim_sck_o, //Mapped to spim_sck
@@ -94,29 +94,6 @@ module xilinx_pulpissimo
   wire        ref_clk;
   wire        tck_int;
 
-  // Fake SD Card stuff
- // wire  sdio_reset_o; //Reset signal for SD card need to be driven low to
-                             //power the onboard sd-card. Mapped to cam_vsync.
-  //wire  pad_sdio_clk;
-  //wire  pad_sdio_cmd;
-  //wire  pad_sdio_data0;
-  //wire  pad_sdio_data1;
-  //wire  pad_sdio_data2;
-  //wire  pad_sdio_data3;
-
-  //Differential to single ended clock conversion, genesys version
-  //IBUFGDS
-  //  #(
-   //   .IOSTANDARD("LVDS"),
-   //   .DIFF_TERM("FALSE"),
-   //   .IBUF_LOW_PWR("FALSE"))
-//  i_sysclk_iobuf
-  //  (
-  //   .I(ref_clk_p),
-  //   .IB(ref_clk_n),
-  //   .O(ref_clk)
-  //   );
-
   // Input clock buffer, nexys4ddr version. hopefully compatitable with Arty 100T
   IBUFG
     #(
@@ -159,7 +136,7 @@ module xilinx_pulpissimo
        .pad_cam_data4(btn1_i),
        .pad_cam_data5(btn2_i),
        .pad_cam_data6(btn3_i),
-       .pad_cam_data7(switch3_i),
+       .pad_cam_data7(switch2_i),
        .pad_cam_vsync(sdio_reset_o),
        .pad_sdio_clk(pad_sdio_clk),
        .pad_sdio_cmd(pad_sdio_cmd),
